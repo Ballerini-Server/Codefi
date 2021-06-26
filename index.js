@@ -2,7 +2,7 @@ import "dotenv/config";
 import Discord from "discord.js";
 import YTDL from "ytdl-core";
 
-const url = "http://www.youtube.com/watch?v=_tV5LEBDs7w";
+const url = "https://www.youtube.com/watch?v=_tV5LEBDs7w";
 const channelId = "836004917973614666";
 let playing = false;
 
