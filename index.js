@@ -15,7 +15,6 @@ async function play(connection) {
   const stream = YTDL(url, { filter: "audio" });
   const DJ = connection.play(stream, { seek: 0, volume: 1 });
   DJ.on("finish", async (end) => {
-    stream.destroy();
     await play(connection);
   });
 }
