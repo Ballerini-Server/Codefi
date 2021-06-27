@@ -19,9 +19,9 @@ const play = async (connection) =>
       playing = false;
       resolve()
     })
-    dj.on('error', () => {
+    dj.on('error', (err) => {
       playing = false;
-      reject()
+      reject(err)
     })
   })
 
@@ -41,7 +41,7 @@ async function replay() {
       console.log(playing)
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
   } finally {
     playing = false;
     voiceConnection.disconnect()
