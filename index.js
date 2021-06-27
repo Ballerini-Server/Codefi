@@ -2,8 +2,8 @@ import 'dotenv/config'
 import Discord from 'discord.js'
 import YTDL from 'ytdl-core'
 
-const url = 'https://www.youtube.com/watch?v=_DYAnU3H7RI'
-const channelId = '858420360441364500';
+const url = 'https://www.youtube.com/watch?v=2zpty96Hu60'
+const channelId = '836004917973614666';
 let playing = false
 
 const client = new Discord.Client({
@@ -20,11 +20,6 @@ const play = async (connection) =>
       resolve()
     })
     dj.on('error', () => {
-      playing = false;
-      connection.disconnect()
-      reject()
-    })
-    dj.on('unpipe', () => {
       playing = false;
       reject()
     })
@@ -43,7 +38,10 @@ async function replay() {
   try {
     while (!playing) {
       await play(voiceConnection);
+      console.log(playing)
     }
+  } catch (error) {
+    console.log(error)
   } finally {
     playing = false;
     voiceConnection.disconnect()
