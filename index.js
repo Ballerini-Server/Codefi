@@ -13,7 +13,7 @@ const client = new Discord.Client({
 async function play(connection) {
   playing = true;
   const stream = YTDL(url, { filter: "audio" });
-  const DJ = connection.play(stream, { seek: 0, volume: 1 });
+  const DJ = connection.play(stream, { seek: 0, volume: 0.09 });
   DJ.on("finish", async (end) => {
     await play(connection);
   });
