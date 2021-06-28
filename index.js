@@ -2,7 +2,7 @@ import 'dotenv/config'
 import Discord from 'discord.js'
 import YTDL from 'ytdl-core'
 
-const url = 'https://www.youtube.com/watch?v=2zpty96Hu60'
+const url = 'https://www.youtube.com/watch?v=1jO2wSpAoxA'
 const channelId = '836004917973614666';
 let playing = false
 
@@ -36,7 +36,7 @@ const connect = async () => {
 async function replay() {
   const voiceConnection = await connect();
   try {
-    while (!playing) {
+    while (true) {
       await play(voiceConnection);
       console.log(playing)
     }
