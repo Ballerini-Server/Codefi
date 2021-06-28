@@ -2,8 +2,8 @@ import "dotenv/config";
 import Discord from "discord.js";
 import YTDL from "ytdl-core";
 
-const url = "https://www.youtube.com/watch?v=_DYAnU3H7RI";
-const channelId = "858420360441364500";
+const url = process.env.url;
+const channelId = process.env.channelId;
 let playing = false;
 
 const client = new Discord.Client({
