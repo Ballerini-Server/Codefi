@@ -2,8 +2,7 @@ import 'dotenv/config'
 import Discord from 'discord.js'
 import YTDL from 'ytdl-core'
 
-const url = 'https://www.youtube.com/watch?v=_DYAnU3H7RI'
-const channelId = '858420360441364500';
+const { url, channelId, token } = process.env;
 let playing = false
 
 const client = new Discord.Client({
@@ -13,7 +12,7 @@ const client = new Discord.Client({
 const play = async (connection) =>
   new Promise((resolve, reject) => {
     playing = true;
-    const stream = YTDL(url, { filter: 'audioonly' });
+    const stream = YTDL(url, { highWaterMark: 100 << 150 });
     const dj = connection.play(stream, { seek: 0, volume: 1.5 });
     dj.on('finish', () => {
       playing = false;
@@ -61,4 +60,4 @@ client.on('message', async message => {
   }
 })
 
-client.login(process.env.token)
+client.login(token)
