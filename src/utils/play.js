@@ -4,6 +4,7 @@ const { url } = process.env;
 const play = async (channel, client) => {
 	try {
 		const connection = await channel.join();
+		connection.voice.setSelfDeaf(true);
 		const dispatcher = connection
 			.play(client.broadcast, {
 				type: "opus",
