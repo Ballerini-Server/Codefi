@@ -2,6 +2,12 @@
 
 ### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em um canal específico para isso. 
 
+# Tecnologias utilizadas:
+
+### [Node.js](https://nodejs.org/en/)
+### [Discord.js](https://discord.js.org/#/)
+### [ytdl-core](https://www.npmjs.com/package/ytdl-core)
+
 # Para contribuir no desenvolvimento do projeto:
 
 **1. Primeiramente você fará o fork do nosso repositório, pelo botão que aparece no canto direito superior `fork`**
