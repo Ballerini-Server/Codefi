@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import discord from "discord.js"
+import discord, { VoiceChannel } from "discord.js"
 import ytdl from "ytdl-core"
 
 const { url, channelId, token } = process.env
@@ -65,6 +65,14 @@ setInterval(async function () {
     }
   }
 }, 20000);
+
+
+client.on('message', message => {
+	if (message.content === '!stop') {
+    message.guild.me.voice.channel.leave()
+    process.exit()
+	}
+});
 
 client.login(token)
 
