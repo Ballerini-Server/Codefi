@@ -2,6 +2,14 @@
 
 ### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em um canal específico para isso.
 
+# Tecnologias utilizadas:
+
+### [Node.js](https://nodejs.org/en/)
+
+### [Discord.js](https://discord.js.org/#/)
+
+### [ytdl-core](https://www.npmjs.com/package/ytdl-core)
+
 # Para contribuir no desenvolvimento do projeto:
 
 **1. Primeiramente você fará o fork do nosso repositório, pelo botão que aparece no canto direito superior `fork`**
@@ -18,6 +26,13 @@ _Caso ainda não esteja familiarizado(a) com git e github, recomendamos assistir
 **2. Crie um arquivo `.env` na raíz do projeto, onde colocaremos as variáveis ambiente, que ficam disponíveis apenas para a pessoa que irá desenvolver.**
 
 **3. Crie um bot [nesse link](https://discord.com/developers/applications/) e copie o token disponível para colocar no arquivo `.env`** <br><br>
+
+Para obter o .env, basta escrever o seguinte código no seu terminal dentro da pasta do repositório:
+
+```
+cp .env.example .env
+```
+
 _(Caso não saiba criar um, basta clicar em `New Application` e depois em `Bot` no canto esquerdo para adicionar um novo. Lá aparecerá o token a ser adicionado no arquivo `.env`)_
 
 Além do token, é necessário adicionar outras 2 variáveis ambiente, `url` (que será a url do vídeo com as músicas lo-fi sem copyright) e `channelId` (o ID do canal de voz em que o bot entrará, basta clicar com o botão direito no canal). Veja abaixo um molde para você criar esse arquivo:
