@@ -35,7 +35,7 @@ cp .env.example .env
 
 _(Caso não saiba criar um, basta clicar em `New Application` e depois em `Bot` no canto esquerdo para adicionar um novo. Lá aparecerá o token a ser adicionado no arquivo `.env`)_
 
-Além do token, é necessário adicionar outras 2 variáveis ambiente, `url` (que será a url do vídeo com as músicas lo-fi sem copyright) e `chanelId` (o ID do canal de voz em que o bot entrará, basta clicar com o botão direito no canal). Veja abaixo um molde para você criar esse arquivo:
+Além do token, é necessário adicionar outras 2 variáveis ambiente, `url` (que será a url do vídeo com as músicas lo-fi sem copyright) e `channelId` (o ID do canal de voz em que o bot entrará, basta clicar com o botão direito no canal). Veja abaixo um molde para você criar esse arquivo:
 
 ![Exemplo de arquivo .env](https://media.discordapp.net/attachments/815597906622021632/859055318927278100/unknown.png)
 
