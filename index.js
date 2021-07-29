@@ -9,13 +9,13 @@ let broadcast = null;
 let interval = null;
 
 if (!token) {
-  console.error("token invalido krk, coloca o certo ae");
+  console.error("token inválido");
   process.exit(1);
 } else if (!channelId || Number(channelId) == NaN) {
-  console.log("id errado amigo");
+  console.log("id inválido");
   process.exit(1);
 } else if (!ytdl.validateURL(url)) {
-  console.log("link está errado.");
+  console.log("link inválido");
   process.exit(1);
 }
 
@@ -24,10 +24,10 @@ client.on('ready', async () => {
   let channel = client.channels.cache.get(channelId) || await client.channels.fetch(channelId)
 
   if (!channel) {
-    console.error("canal não existe");
+    console.error("esse canal não existe");
     return process.exit(1);
   } else if (channel.type !== "voice") {
-    console.error("id não é de um canal de voz oooo bocó!");
+    console.error("esse id não corresponde a um canal de voz");
     return process.exit(1);
   }
 
