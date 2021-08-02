@@ -39,7 +39,11 @@ client.on('ready', async () => {
     interval = setInterval(async function () {
       try {
         if (stream && !stream.ended) stream.destroy();
-        stream = ytdl(url, { highWaterMark: 100 << 150 });
+        stream = ytdl(url, {
+          highWaterMark: 100 << 150 ,
+          filter: "audioonly",
+          opusEncoded: true, //Optional
+        });
         stream.on('error', console.error);
         broadcast.play(stream);
       } catch (e) { return }
