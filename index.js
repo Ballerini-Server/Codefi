@@ -9,14 +9,11 @@ let broadcast = null;
 let interval = null;
 
 if (!token) {
-  console.error("token inválido");
-  process.exit(1);
-} else if (!channelId || Number(channelId) == NaN) {
-  console.log("id inválido");
-  process.exit(1);
+  throw new error("Token inválido!");
+} else if (!channelId || !Number(channelId)) {
+  throw new error("Id inválido!");
 } else if (!ytdl.validateURL(url)) {
-  console.log("link inválido");
-  process.exit(1);
+  throw new error("URL inválida");
 }
 
 client.on('ready', async () => {
