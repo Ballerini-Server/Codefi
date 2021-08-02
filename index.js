@@ -9,11 +9,11 @@ let broadcast = null;
 let interval = null;
 
 if (!token) {
-  throw new error("Token inválido!");
+  throw new Error("Token inválido!");
 } else if (!channelId || !Number(channelId)) {
-  throw new error("Id inválido!");
+  throw new Error("Id inválido!");
 } else if (!ytdl.validateURL(url)) {
-  throw new error("URL inválida");
+  throw new Error("URL inválida!");
 }
 
 client.on('ready', async () => {
@@ -21,11 +21,9 @@ client.on('ready', async () => {
   let channel = client.channels.cache.get(channelId) || await client.channels.fetch(channelId)
 
   if (!channel) {
-    console.error("esse canal não existe");
-    return process.exit(1);
+    throw new Error("Channel não existe!");
   } else if (channel.type !== "voice") {
-    console.error("esse id não corresponde a um canal de voz");
-    return process.exit(1);
+    throw new Error("O tipo do canal deve ser de voz!");
   }
 
   broadcast = client.voice.createBroadcast();
