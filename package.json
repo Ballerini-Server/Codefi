@@ -1,18 +1,30 @@
 {
-    "name": "codefi",
-    "author":"https://github.com/tauzxd/",
-    "version": "1.0.0",
-    "description": "",
+    
+    "name": "bot-lofi",
+    "version": "2.0.0",
+    "description": "Discord bot for lo-fi music radio",
     "main": "index.js",
     "type": "module",
-
     "scripts": {
-        "start": "node .",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ballerini-Server/Codefi.git"
+    },
+    "keywords": [
+        "discord-bot",
+        "bot",
+        "discord",
+        "discordjs",
+        "lofi"
+    ],
     "author": "https://github.com/tauzxd/",
     "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ballerini-Server/Codefi/issues"
+    },
+    "homepage": "https://github.com/Ballerini-Server/Codefi#readme",
     "dependencies": {
         "discord.js": "^12.5.3",
         "discord.js-arbitrary-ffmpeg": "^1.1.0",
