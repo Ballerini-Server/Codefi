@@ -48,7 +48,7 @@ client.on('ready', async() => {
     if (!interval) {
         interval = setInterval(async function() {
             try {
-                channel.leave()
+                //channel.leave()
                 const connection = await channel.join();
                 connection.play(broadcast);
             } catch (e) { return channel.leave()}
