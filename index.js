@@ -1,71 +1,80 @@
 import 'dotenv/config'
+if (process.env.NODE_ENV !== 'production')
+   dotenv.config();
 import discord from "discord.js"
 import ytdl from "ytdl-core"
 
 const { url, channelId, token } = process.env
 const client = new discord.Client();
-
-let broadcast = null;
-let interval = null;
+let channel,
+    broadcast = null,
+    stream = ytdl(url),
+    interval = null;
 
 if (!token) {
-  console.error("token inválido");
-  process.exit(1);
-} else if (!channelId || Number(channelId) == NaN) {
-  console.log("id inválido");
-  process.exit(1);
+    console.error("token invalido");
+} else if (!channelId || !Number(channelId)) {
+    console.log("id do canal inválido");
 } else if (!ytdl.validateURL(url)) {
-  console.log("link inválido");
-  process.exit(1);
+    console.log("link do vídeo inválido.");
 }
 
-client.on('ready', async () => {
-  client.user.setActivity("Coding with Lo-fi");
-  let channel = client.channels.cache.get(channelId) || await client.channels.fetch(channelId)
+client.on('ready', async() => {
 
-  if (!channel) {
-    console.error("esse canal não existe");
-    return process.exit(1);
-  } else if (channel.type !== "voice") {
-    console.error("esse id não corresponde a um canal de voz");
-    return process.exit(1);
-  }
+    let status = [
+        `❤️Rafaella Ballerini on Youtube!❤️`,
+        `💜Rafaella Ballerini on Twitch!💜`,
+        `🧡Rafaella Ballerini on Instagram!🧡`,
+        `🎧Coding with Lo-fi!🎧`,
+        `⭐Stream Lo-fi!⭐`,
+        `👨‍💻Contact Tauz for questions about me😺`
+    ];
+    let i = 0;
 
-  broadcast = client.voice.createBroadcast();
-  let stream = ytdl(url);
-  stream.on('error', console.error);
-  broadcast.play(stream);
-  if (!interval) {
-    interval = setInterval(async function () {
-      try {
-        if (stream && !stream.ended) stream.destroy();
-        stream = ytdl(url, { highWaterMark: 100 << 150 });
-        stream.on('error', console.error);
-        broadcast.play(stream);
-      } catch (e) { return }
-    }, 1800000)
-  }
-  try {
-    const connection = await channel.join();
-    connection.play(broadcast);
-  } catch (error) {
-    console.error(error);
-  }
+    setInterval(() => client.user.setActivity(`${status[i++ %
+    status.length]}`, {
+        type: 'WATCHING'
+    }), 5000);
+
+    channel = client.channels.cache.get(channelId) || await client.channels.fetch(channelId);
+    if (!channel) {
+        console.error("canal não existe");
+
+    } else if (channel.type !== "voice") {
+        console.error("id não é de um canal de voz");
+
+    }
+    broadcast = client.voice.createBroadcast();
+    stream.on('error', console.error);
+    broadcast.play(stream);
+    if (!interval) {
+        interval = setInterval(async function() {
+            try {
+                channel.leave()
+                const connection = await channel.join();
+                connection.play(broadcast);
+            } catch (e) { return }
+        }, 1200000)
+    }
+    try {
+        const connection = await channel.join();
+        connection.play(broadcast);
+    } catch (error) {
+        console.error(error);
+    }
 });
 
-setInterval(async function () {
-  if (!client.voice.connections.size) {
-    let channel = client.channels.cache.get(channelId) || await client.channels.fetch(channelId);
-    if (!channel) return;
-    try {
-      const connection = await channel.join();
-      connection.play(broadcast);
-    } catch (error) {
-      console.error(error);
+setInterval(async function() {
+    if (!client.voice.connections.size) {
+        console.log("desconectado")
+        if (!channel) return;
+        try {
+            const connection = await channel.join();
+            connection.play(broadcast);
+        } catch (error) {
+            console.error(error);
+        }
     }
-  }
-}, 20000);
+}, 500);
 
-client.login(token)
-
-process.on('unhandledRejection', console.error);
+client.login(token);
