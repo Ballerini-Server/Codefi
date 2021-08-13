@@ -1,14 +1,18 @@
 # Codefi 🌃
 
-### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em um canal específico para isso.
+#### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em um canal específico para isso.
 
 # Tecnologias utilizadas:
 
-### [Node.js](https://nodejs.org/en/)
+#### [Node.js](https://nodejs.org/en/)
 
-### [Discord.js](https://discord.js.org/#/)
+#### [Discord.js](https://discord.js.org/#/)
 
-### [ytdl-core](https://www.npmjs.com/package/ytdl-core)
+#### [ytdl-core](https://www.npmjs.com/package/ytdl-core)
+
+# Como adicionar o Codefi no seu servidor?
+
+Entre no [link](https://discord.com/oauth2/authorize?client_id=872175056502001735&scope=bot&permissions=3149056), selecione o servidor que deseja adicionar e dê as permissões necessárias
 
 # Para contribuir no desenvolvimento do projeto:
 
@@ -52,4 +56,4 @@ Depois disso, colocará o `Client ID`, disponível em `General information`, na 
 
 **8. Faça um `pull request` para o nosso repositório e descreva exatamente o que você alterou e qualquer ação necessária que devemos fazer para testar ou rodar.**
 
-### Desde já agradecemos qualquer contribuição! ❤
+#### Desde já agradecemos qualquer contribuição! ❤
