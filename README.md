@@ -12,10 +12,10 @@
 
 # Como adicionar o Codefi no seu servidor?
 
-**1. Entre no [link](https://discord.com/oauth2/authorize?client_id=872175056502001735&scope=bot&permissions=3149056), selecione o servidor que deseja adicionar e dê as permissões necessárias**
-**2. Crie ou escolha um canal de voz para que o bot se conecte (não esqueça de autorizar o acesso dele nesse canal)**
-**3. Clique com o botão direito em cima do canal de voz e selecione o ID do canal**
-**4. Digite o comando abaixo em algum canal de texto que o bot tenha permissão de ler:**
+**1. Entre no [link](https://discord.com/oauth2/authorize?client_id=872175056502001735&scope=bot&permissions=3149056), selecione o servidor que deseja adicionar e dê as permissões necessárias**<br>
+**2. Crie ou escolha um canal de voz para que o bot se conecte (não esqueça de autorizar o acesso dele nesse canal)**<br>
+**3. Clique com o botão direito em cima do canal de voz e selecione o ID do canal**<br>
+**4. Digite o comando abaixo em algum canal de texto que o bot tenha permissão de ler:**<br>
 
 `>add id`**
 
