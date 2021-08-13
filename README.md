@@ -17,7 +17,7 @@
 **3. Clique com o botão direito em cima do canal de voz e selecione o ID do canal**<br>
 **4. Digite o comando abaixo em algum canal de texto que o bot tenha permissão de ler:**<br>
 
-`>add id`**
+`>add id`
 
 **5. E pronto, agora todos os membros do seu servidor poderão curtir um bom lo-fi!**
 
