@@ -71,9 +71,14 @@ client.on('ready', async() => {
     }
 });
 
-setInterval(async function() {
-    if (!client.voice.connections.size) {
-        console.log("desconectado")
+client.on('raw', async dados => {
+    if (!dados.d) return
+    if (!dados.d.user_id) return;
+    if (dados.d.user_id !== client.user.id) return;
+    if (dados.t !== 'VOICE_STATE_UPDATE') return;
+
+    if (dados.d.channel_id === null) {
+       console.log("desconectado")
         if (!channel) return;
         try {
             stream = ytdl(url)
@@ -88,7 +93,8 @@ setInterval(async function() {
             console.error(error);
             channel.leave()
         }
+        return
     }
-}, 1000);
+});
 
 client.login(token);
