@@ -76,13 +76,14 @@ client.on('raw', async dados => {
     if (!dados.d.user_id) return;
     if (dados.d.user_id !== client.user.id) return;
     if (dados.t !== 'VOICE_STATE_UPDATE') return;
-
+    
+    console.log(dados)
     if (dados.d.channel_id === null) {
        console.log("desconectado")
         if (!channel) return;
         try {
-            stream = ytdl(url)
-            broadcast = client.voice.createBroadcast();
+            stream = ytdl(url);
+            broadcast = await client.voice.createBroadcast();
             stream.on('error', console.error);
             broadcast.play(stream);
 
