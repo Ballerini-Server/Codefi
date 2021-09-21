@@ -1,6 +1,6 @@
 # Codefi Ballerini🌃
 
-#### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em um canal específico para isso.
+#### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em um canal específico para isso. Para adicionar no seu servidor [clique aqui](https://discord.com/oauth2/authorize?client_id=872175056502001735&scope=bot&permissions=3149056).
 
 # Tecnologias utilizadas No Projeto 🛠️
 
