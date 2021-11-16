@@ -2,10 +2,6 @@
 
 #### Um bot criado pela [Comunidade Ballerini](https://discord.gg/G9GPg5SA75) para você ouvir músicas Lo-Fi sem parar enquanto desenvolve em algum canal de voz!
 
-<div align="center">
-<a href="https://discord.com/oauth2/authorize?client_id=872175056502001735&scope=bot&permissions=3149056"><img height="150" src="https://media.discordapp.net/attachments/815597906622021632/891700441417674853/Instagram_2_1.png?width=910&height=428"></a>
-</div>
-
 # Tecnologias utilizadas No Projeto 🛠️
 
 #### [Javascript](https://www.javascript.com/)
