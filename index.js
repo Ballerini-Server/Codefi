@@ -2,8 +2,8 @@ import 'dotenv/config'
 import Discord from 'discord.js'
 import YTDL from 'ytdl-core'
 
-const url = 'https://www.youtube.com/watch?v=1jO2wSpAoxA'
-const channelId = '836004917973614666';
+const { url, channelId, token } = process.env;
+
 let playing = false
 
 const client = new Discord.Client({
@@ -61,4 +61,4 @@ client.on('message', async message => {
   }
 })
 
-client.login(process.env.token)
+client.login(token)
