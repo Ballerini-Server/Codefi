@@ -1,101 +1,50 @@
 import 'dotenv/config'
-//if (process.env.NODE_ENV !== 'production')
- //dotenv.config();
 import discord from "discord.js"
 import ytdl from "ytdl-core"
 
-const { url, channelId, token } = process.env
+const { URL, CHANNELID, TOKEN, STATUS } = process.env
 const client = new discord.Client();
-let channel,
-    broadcast = null,
-    stream = ytdl(url),
-    interval = null;
 
-if (!token) {
+if (!TOKEN) {
     console.error("token invalido");
-} else if (!channelId || !Number(channelId)) {
-    console.log("id do canal inválido");
-} else if (!ytdl.validateURL(url)) {
-    console.log("link do vídeo inválido.");
+} else if (!CHANNELID || !Number(CHANNELID)) {
+    console.error("id do canal inválido");
+} else if (!ytdl.validateURL(URL)) {
+    console.error("link do vídeo inválido.");
 }
+
+const channel;
+const broadcast = null;
+const interval = null;
+const stream = ytdl(URL, { highWaterMark: 100 << 150 });
 
 client.on('ready', async() => {
 
-    let status = [
-        `❤️Rafaella Ballerini on Youtube!❤️`,
-        `💜Rafaella Ballerini on Twitch!💜`,
-        `🧡Rafaella Ballerini on Instagram!🧡`,
-        `🎧Coding with Lo-fi!🎧`,
-        `⭐Stream Lo-fi!⭐`,
-        `👨‍💻Contact Tauz for questions about me😺`
-    ];
-    let i = 0;
+    client.user.setActivity(STATUS || "Radio lo-fi",{ type: 'LISTENING'})
+    channel = client.channels.cache.get(CHANNELID) || await client.channels.fetch(CHANNELID);
 
-    setInterval(() => client.user.setActivity(`${status[i++ %
-    status.length]}`, {
-        type: 'WATCHING'
-    }), 5000);
+    if (!channel || channel.type !== "voice") return console.error("canal de voz não existe")
 
-    channel = client.channels.cache.get(channelId) || await client.channels.fetch(channelId);
-    if (!channel) {
-        console.error("canal não existe");
-
-    } else if (channel.type !== "voice") {
-        console.error("id não é de um canal de voz");
-
-    }
     broadcast = client.voice.createBroadcast();
     stream.on('error', console.error);
     broadcast.play(stream);
-    if (!interval) {
-        interval = setInterval(async function() {
-            try {
-                channel.leave()
-                stream = ytdl(url)
-                broadcast = client.voice.createBroadcast();
-                stream.on('error', console.error);
-                broadcast.play(stream);
 
-                const connection = await channel.join();
-                connection.play(broadcast);
-                console.log("broadcast conectado depois do maior intervalo")
-            } catch (e) { return channel.leave() }
-        }, 1200000)
+    if (!interval) {
+        interval = setInterval(async () => await channel.leave(), 30000)
     }
     try {
         const connection = await channel.join();
         connection.play(broadcast);
     } catch (error) {
         console.error(error);
-        channel.leave()
     }
 });
 
-client.on('raw', async dados => {
-    if (!dados.d) return
-    if (!dados.d.user_id) return;
-    if (dados.d.user_id !== client.user.id) return;
-    if (dados.t !== 'VOICE_STATE_UPDATE') return;
-    
-    console.log(dados)
-    if (dados.d.channel_id === null) {
-       console.log("desconectado")
-        if (!channel) return;
-        try {
-            stream = ytdl(url);
-            broadcast = await client.voice.createBroadcast();
-            stream.on('error', console.error);
-            broadcast.play(stream);
+client.on('voiceStateUpdate', async userEvent => {
+    if (userEvent.id !== client.user.id) return;
+    if(!channel) return;
+    const connection = await channel.join();
+    connection.play(broadcast);
+})
 
-            const connection = await channel.join();
-            connection.play(broadcast);
-            console.log("broadcast conectado pois foi forçado a parar")
-        } catch (error) {
-            console.error(error);
-            channel.leave()
-        }
-        return
-    }
-});
-
-client.login(token);
+client.login(TOKEN);
