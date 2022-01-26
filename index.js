@@ -30,7 +30,7 @@ client.on('ready', async() => {
     broadcast.play(stream);
 
     if (!interval) {
-        interval = setInterval(async () => await channel.leave(), 30000)
+        interval = setInterval(async () => await channel.leave(), 1800000)
     }
     try {
         const connection = await channel.join();
