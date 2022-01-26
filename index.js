@@ -13,10 +13,10 @@ if (!TOKEN) {
     console.error("link do vídeo inválido.");
 }
 
-const channel;
-const broadcast = null;
-const interval = null;
-const stream = ytdl(URL, { highWaterMark: 100 << 150 });
+let channel = null;
+let broadcast = null;
+let interval = null;
+let stream = ytdl(URL, { highWaterMark: 100 << 150 });
 
 client.on('ready', async() => {
 
@@ -38,6 +38,7 @@ client.on('ready', async() => {
     } catch (error) {
         console.error(error);
     }
+    console.log("sucess")
 });
 
 client.on('voiceStateUpdate', async userEvent => {
