@@ -58,7 +58,7 @@ npm run dev
 ```
 6. Edite o código da forma que acha que poderá ser melhor para o projeto, adicionando features, resolvendo problemas que encontrar, iremos avaliar toda forma de contribuição!
 
-7. Faça um `pull request` para o nosso repositório e descreva exatamente o que você alterou e qualquer ação necessária que devemos fazer para testar ou rodar. Siga nosso [modelo de Pull Request]().
+7. Faça um `pull request` para o nosso repositório e descreva exatamente o que você alterou e qualquer ação necessária que devemos fazer para testar ou rodar. Siga nosso [modelo de Pull Request](https://github.com/Ballerini-Server/Codefi/blob/main/.github/pull_request_template.md).
 
 ## Notas finais e Copyright ©️
 
