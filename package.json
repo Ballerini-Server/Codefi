@@ -1,11 +1,10 @@
 {
     "name": "bot-lofi",
     "version": "2.0.0",
-    "description": "Discord bot for lo-fi music radio",
+    "description": "Discord bot for lo-fi music radio 24/7",
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon index.js"
     },
     "repository": {
@@ -20,7 +19,7 @@
         "lofi"
     ],
     "author": "https://github.com/tauzxd/",
-    "license": "ISC",
+    "license": "GPLv3",
     "bugs": {
         "url": "https://github.com/Ballerini-Server/Codefi/issues"
     },
