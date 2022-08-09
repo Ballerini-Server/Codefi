@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",                              
+    "module": "commonjs",   
+    "allowJs": true,                             
+    "esModuleInterop": true,                             
+    "skipLibCheck": true,                                 
+    "forceConsistentCasingInFileNames": true,
+  
+  },
+  "include": ["./index.ts"],
+  "lib": [
+    "ES6",
+  ],
+}

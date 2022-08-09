@@ -1,37 +1,41 @@
 {
-    "name": "bot-lofi",
-    "version": "2.0.0",
-    "description": "Discord bot for lo-fi music radio 24/7",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "dev": "nodemon index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Ballerini-Server/Codefi.git"
-    },
-    "keywords": [
-        "discord-bot",
-        "bot",
-        "discord",
-        "discordjs",
-        "lofi"
-    ],
-    "author": "https://github.com/tauzxd/",
-    "license": "GPLv3",
-    "bugs": {
-        "url": "https://github.com/Ballerini-Server/Codefi/issues"
-    },
-    "homepage": "https://github.com/Ballerini-Server/Codefi#readme",
-    "dependencies": {
-        "discord.js": "^12.5.3",
-        "discord.js-arbitrary-ffmpeg": "^1.1.0",
-        "dotenv": "^10.0.0",
-        "ffmpeg": "^0.0.4",
-        "ffmpeg-static": "^4.4.1",
-        "opusscript": "^0.0.8",
-        "ytdl": "^1.4.1",
-        "ytdl-core": "^4.9.1"
-    }
+  "name": "bot-lofi",
+  "version": "2.0.0",
+  "description": "Discord bot for lo-fi music radio 24/7",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "tsc-node-dev --transpile-only index.ts",
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ballerini-Server/Codefi.git"
+  },
+  "keywords": [
+    "discord-bot",
+    "bot",
+    "discord",
+    "discordjs",
+    "lofi"
+  ],
+  "author": "https://github.com/tauzxd/",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/Ballerini-Server/Codefi/issues"
+  },
+  "homepage": "https://github.com/Ballerini-Server/Codefi#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "discord.js-arbitrary-ffmpeg": "^1.1.0",
+    "dotenv": "^10.0.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.4.1",
+    "opusscript": "^0.0.8",
+    "ytdl": "^1.4.1",
+    "ytdl-core": "^4.9.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
