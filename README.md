@@ -10,20 +10,10 @@ Um bot criado pela [Comunidade Ballerini](https://discord.gg/wagxzStdcR) para vo
 - [ytdl-core](https://www.npmjs.com/package/ytdl-core)
 - 
 
-## Como adicionar o Codefi no seu servidor? 🎧▶
-
-1. Entre no [link](https://discord.com/oauth2/authorize?client_id=872175056502001735&scope=bot&permissions=3149056), selecione o servidor que deseja adicionar e dê as permissões necessárias.<br>
-2. Crie ou escolha um canal de voz para que o bot se conecte (não esqueça de autorizar o acesso dele nesse canal).<br>
-3. Digite `>add #!canal` ou `>add <id_canal>` para adicioná-lo.<br>
-4. Digite um dos comandos abaixo em algum canal de texto que o bot tenha permissão de ler para mais informações.<br>
-`>help` (ajuda com os comandos dentro do servidor)<br>
-`>add #!canal` (comando de adicionar o canal de voz/rádio)<br>
-`>remove` (comando de remover o bot do canal,ele também pode ser removido simplesmente desconectando-o)<br>
-
-5. E pronto, agora todos os membros do seu servidor poderão ouvir lo-fi com o CODE FI 24/7.
 ## Esclarecimentos ⚠️
 
-Nota: O bot oficial que está sendo usado para os servidores e o mesmo do link que você pode adicionar no seu servidor possui o código fechado, porém há uma versão open-source nesse repositório que foi usada como base para o bot oficial e que está funcionando perfeitamente. O código do codefi para servidores pode ser encontrado com o moderador e desenvolvedor [TAUZ#0001](https://discord.com/users/454059471765766156/), que será disponibilizado apenas por certas exceções.
+Nota: Há uma versão open-source nesse repositório que foi usada como base para o bot oficial e que está funcionando perfeitamente.
+
 ## Para contribuir no desenvolvimento do projeto 💻
 
 1. Você fará o fork do nosso repositório, pelo botão que aparece no canto direito superior `fork`.
