@@ -8,7 +8,6 @@ Um bot criado pela [Comunidade Ballerini](https://discord.gg/wagxzStdcR) para vo
 - [Node.js](https://nodejs.org/en/)
 - [Discord.js](https://discord.js.org/#/)
 - [ytdl-core](https://www.npmjs.com/package/ytdl-core)
-- 
 
 ## Esclarecimentos ⚠️
 
@@ -25,8 +24,9 @@ Para colocar agora os arquivos na sua máquina, você fará um clone do reposit�
 _Caso ainda não esteja familiarizado(a) com git e github, recomendamos assistir os seguintes vídeos: [O que é Git e Github](https://www.youtube.com/watch?v=DqTITcMq68k) e [Como usar Git e Github na prática](https://www.youtube.com/watch?v=UBAX-13g8OM)_
 
 2. Dentro da pasta, no terminal a sua escolha, instale as dependências necessárias para o projeto com o comando:
+
 ```
-npm install
+yarn
 ```
 
 3. Para obter o `.env`, basta escrever o seguinte código no seu terminal dentro da pasta do repositório:
@@ -34,6 +34,7 @@ npm install
 ```
 cp .env.example .env
 ```
+
 4. Crie um bot [neste link](https://discord.com/developers/applications/) e copie o token disponível para colocar no arquivo `.env` na parte que fica localizado o token. <br>
 
 _(Caso não saiba criar um, basta clicar em `New Application` e depois em `Bot` no canto esquerdo para adicionar um novo. Lá aparecerá o token a ser adicionado no arquivo `.env`)_
@@ -42,11 +43,12 @@ Além do token, é necessário adicionar outras 2 variáveis ambiente, `url` (qu
 
 ![Exemplo de arquivo .env](https://media.discordapp.net/attachments/815597906622021632/859055318927278100/unknown.png)
 
-
 5. Rode o projeto com:
+
 ```
-npm run dev
+yarn dev
 ```
+
 6. Edite o código da forma que acha que poderá ser melhor para o projeto, adicionando features, resolvendo problemas que encontrar, iremos avaliar toda forma de contribuição!
 
 7. Faça um `pull request` para o nosso repositório e descreva exatamente o que você alterou e qualquer ação necessária que devemos fazer para testar ou rodar. Siga nosso [modelo de Pull Request](https://github.com/Ballerini-Server/Codefi/blob/main/.github/pull_request_template.md).
