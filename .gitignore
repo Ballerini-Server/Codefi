@@ -1,6 +1,6 @@
 .env
 /node_modules
+/dist
 .tool-versions
 package-lock.json
-index.js
 yarn-error.log
