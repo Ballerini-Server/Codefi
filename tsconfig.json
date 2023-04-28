@@ -5,11 +5,10 @@
     "allowJs": true,                             
     "esModuleInterop": true,                             
     "skipLibCheck": true,                                 
-    "forceConsistentCasingInFileNames": true,
-	"outDir": "./dist"
+    "forceConsistentCasingInFileNames": true
   
   },
-  "include": ["./src/**/*.ts"],
+  "include": ["./index.ts"],
   "lib": [
     "ES6"
   ]

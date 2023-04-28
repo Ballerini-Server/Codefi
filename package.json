@@ -4,9 +4,9 @@
   "description": "Discord bot for lo-fi music radio 24/7",
   "main": "index.ts",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only src/index.ts",
+    "dev": "ts-node-dev --transpile-only index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,11 @@
   },
   "homepage": "https://github.com/Ballerini-Server/Codefi#readme",
   "dependencies": {
-    "discord.js": "^14.9.0"
+    "@discordjs/voice": "^0.16.0",
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3",
+    "play-dl": "^1.9.6",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
     "ts-node-dev": "^2.0.0",

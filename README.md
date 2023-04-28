@@ -7,7 +7,7 @@ Um bot criado pela [Comunidade Ballerini](https://discord.gg/wagxzStdcR) para vo
 - [TypeScript](https://www.typescriptlang.org/pt/docs/)
 - [Node.js](https://nodejs.org/en/)
 - [Discord.js](https://discord.js.org/#/)
-- [ytdl-core](https://www.npmjs.com/package/ytdl-core)
+- [play-dl](https://www.npmjs.com/package/play-dl)
 
 ## Esclarecimentos ⚠️
 
