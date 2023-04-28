@@ -1,57 +1,65 @@
 import "dotenv/config";
-import discord from "discord.js";
-import ytdl from "ytdl-core";
+import { createAudioPlayer, createAudioResource, joinVoiceChannel, NoSubscriberBehavior } from '@discordjs/voice';
+import play from 'play-dl';
+import { ActivityType, ChannelType, Client, GatewayIntentBits } from "discord.js";
 
 const { URL, CHANNELID, TOKEN, STATUS } = process.env;
-const client = new discord.Client();
 
-if (!TOKEN) {
-  console.error("token invalido");
-} else if (!CHANNELID || !Number(CHANNELID)) {
-  console.error("id do canal inválido");
-} else if (!ytdl.validateURL(URL)) {
-  console.error("link do vídeo inválido.");
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildVoiceStates,
+	]
+});
+
+if(!CHANNELID || !Number(CHANNELID)) {
+	console.error("Invalid channel ID!");
 }
 
-let channel = null;
-let broadcast = null;
-let stream = ytdl(URL, { highWaterMark: 100 << 150, filter: "audio" });
+if(!TOKEN) {
+	console.error("Invalid token!");
+}
+
+if(!URL || !play.yt_validate(URL)) {
+	console.error("Invalid URL!");
+}
+
 client.on("ready", async () => {
-  client.user.setActivity(STATUS || "Radio CODE-FI", { type: "LISTENING" });
-  channel =
-    client.channels.cache.get(CHANNELID) ||
-    (await client.channels.fetch(CHANNELID));
+	client.user.setActivity(STATUS || "Radio CODE-FI", { type: ActivityType.Listening });
+	const channel = await client.channels.fetch(CHANNELID);
 
-  if (!channel || channel.type !== "voice")
-    return console.error("canal de voz não existe");
+	if(!channel || channel.type !== ChannelType.GuildVoice) {
+		return console.error("Invalid channel!");
+	}
 
-  broadcast = client.voice.createBroadcast();
-  stream.on("error", console.error);
+	try {
+		const connection = joinVoiceChannel({
+			channelId: channel.id,
+			guildId: channel.guild.id,
+			adapterCreator: channel.guild.voiceAdapterCreator
+		});
 
-  try {
-    const connection = await channel.join();
-    broadcast.play(stream);
-    connection.play(broadcast);
+		const stream = await play.stream(URL);
 
-    setInterval(async () => {
-      stream.destroy();
-      stream = ytdl(URL, { highWaterMark: 100 << 150, filter: "audio" });
-      await broadcast.play(stream);
-    }, 1800000);
-  } catch (error) {
-    console.error(error);
-  }
-  console.log("CODE-FI Online!");
-});
-setInterval(async () => {
-  await channel.leave();
-}, 900000);
+		const resource = createAudioResource(stream.stream, {
+            inputType: stream.type
+        });
 
-client.on("voiceStateUpdate", async (userEvent) => {
-  if (userEvent.id !== client.user.id) return;
-  if (!channel) return;
-  const connection = await channel.join();
-  connection.play(broadcast);
+		const player = createAudioPlayer({
+            behaviors: {
+                noSubscriber: NoSubscriberBehavior.Play
+            }
+        });
+
+		player.play(resource);
+		connection.subscribe(player);
+		
+	} catch(err) {
+		console.error(err);
+	}
+
+
+	console.log("CODE-FI Online!");
 });
 
 client.login(TOKEN);
